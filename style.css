@@ -1,0 +1,139 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: #425b84;
+  color: #ffffff;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+  font: normal 1rem/1.5 'Arial', sans-serif;
+}
+
+#main-head{
+  background: #5b7bb4;
+  text-align: center;
+  height: 30vh;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+#main-head h1{
+  font-size: 2.5rem;
+}
+
+#showcase ul{
+  list-style: none;
+  background: #425b84;
+  padding: 50px 0;
+}
+
+#showcase ul li{
+  width: 5px;
+  background: #ffffff;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 40px;
+}
+
+#showcase ul li div{
+  position: relative;
+  background: #5b7bb4;
+  bottom: 0;
+  width: 400px;
+  padding: 1rem;
+  transition: all 0.5s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#showcase ul li:nth-child(odd) div{
+  left: 40px;
+  transform: translateX(200px);
+}
+
+#showcase ul li:nth-child(even) div{
+  left: -430px;
+  transform: translateX(-200px);
+}
+
+#showcase ul li::after{
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: inherit;
+  transition: background 0.5s ease-in-out;
+}
+
+#showcase div::before{
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+#showcase ul li:nth-child(odd) div::before{
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #5b7bb4 transparent transparent;
+}
+
+#showcase ul li:nth-child(even) div::before{
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #5b7bb4;
+}
+
+#showcase ul li.show div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+#showcase ul li.show:after {
+  background: #5b7bb4;
+}
+
+@media(max-width: 900px){
+  #showcase ul li div{
+    width: 250px;
+  }
+
+  #showcase ul li:nth-child(even) div{
+    left: -180px;
+  }
+
+  #main-head{
+    height: 35vh;
+  }
+}
+
+@media(max-width: 768px){
+  #showcase ul li{
+    margin-left: 20px;
+  }
+
+  #showcase ul li div{
+    width: calc(100vh - 50px);
+  }
+
+  #showcase ul li:nth-child(even) div {
+    left: 230px;
+  }
+
+  #showcase ul li:nth-child(even) div:before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #5b7bb4 transparent transparent;
+  }
+
+}
